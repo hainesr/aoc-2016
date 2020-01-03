@@ -34,7 +34,7 @@ Metrics/MethodLength:
     - 'test/**/*'
 
 # Allow short param names.
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Enabled: false
 
 # Allow chaining blocks for solution efficiency.
