@@ -15,7 +15,8 @@ module AOC2016
   INPUT_DIR = ::File.expand_path('../etc', __dir__)
 
   DAY_MAP = [
-    nil
+    nil,
+    'taxicab'
   ].freeze
 
   def self.class_from_day(day)
