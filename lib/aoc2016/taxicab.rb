@@ -15,10 +15,17 @@ module AOC2016
       path = generate_path(input)
 
       puts "Part 1: #{shortest_path(path)}"
+      puts "Part 2: #{hq_location(path)}"
     end
 
     def shortest_path(path)
       path[-1].split(',').map(&:to_i).map(&:abs).sum
+    end
+
+    def hq_location(path)
+      twice = path.group_by { path.count(_1) }[2].uniq
+      point = path[twice.map { path.index(_1) }.sort.first]
+      point.split(',').map(&:to_i).map(&:abs).sum
     end
 
     def generate_path(input)
