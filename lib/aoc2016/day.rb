@@ -15,7 +15,7 @@ module AOC2016
     private
 
     def read_input_file
-      ::File.read(input_file)
+      ::File.read(input_file).chomp
     end
 
     def input_file
