@@ -17,7 +17,8 @@ module AOC2016
   DAY_MAP = [
     nil,
     'taxicab',
-    'bathroom_security'
+    'bathroom_security',
+    'three_sided_squares'
   ].freeze
 
   def self.class_from_day(day)
