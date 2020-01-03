@@ -26,5 +26,10 @@ class AOC2016::BathroomSecurityTest < Minitest::Test
       '1985',
       @bs.get_code(AOC2016::BathroomSecurity::KEYPAD1, CODE1, 12)
     )
+
+    assert_equal(
+      '5DB3',
+      @bs.get_code(AOC2016::BathroomSecurity::KEYPAD2, CODE1, 15)
+    )
   end
 end
