@@ -19,7 +19,8 @@ module AOC2016
     'taxicab',
     'bathroom_security',
     'three_sided_squares',
-    'security_through_obscurity'
+    'security_through_obscurity',
+    'game_of_chess'
   ].freeze
 
   def self.class_from_day(day)
