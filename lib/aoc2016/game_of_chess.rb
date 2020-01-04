@@ -14,22 +14,36 @@ module AOC2016
   class GameOfChess < Day
     DOOR_ID = 'ugkcyxxp'
 
-    def part1
-      puts "Part 1: #{password}"
+    def setup
+      @pw1, @pw2 = passwords
     end
 
-    def password
-      i = 700_000 # Now we know roughly where these start...
-      password = ''
+    def part1
+      puts "Part 1: #{@pw1}"
+    end
 
-      until password.length == 8
+    def part2
+      puts "Part 2: #{@pw2}"
+    end
+
+    def passwords
+      i = 700_000 # Now we know roughly where these start...
+      pw1 = ''
+      pw2 = ['*'] * 8
+
+      while pw2.include?('*')
         md5 = Digest::MD5.hexdigest(DOOR_ID + i.to_s)
-        password += md5[5] if md5.start_with?('00000')
+        if md5.start_with?('00000')
+          pw1 += md5[5] if pw1.length < 8
+
+          idx = md5[5].to_i(16)
+          pw2[idx] = md5[6] if idx < 8 && pw2[idx] == '*'
+        end
 
         i += 1
       end
 
-      password
+      [pw1, pw2.join]
     end
   end
 end
