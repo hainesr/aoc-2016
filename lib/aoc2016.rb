@@ -20,7 +20,8 @@ module AOC2016
     'bathroom_security',
     'three_sided_squares',
     'security_through_obscurity',
-    'game_of_chess'
+    'game_of_chess',
+    'signals_and_noise'
   ].freeze
 
   def self.class_from_day(day)
