@@ -28,10 +28,16 @@ module AOC2016
       nil, nil, nil, nil, nil
     ].freeze
 
-    def run
-      input = read_input_file
-      puts "Part 1: #{get_code(KEYPAD1, input, 12)}"
-      puts "Part 1: #{get_code(KEYPAD2, input, 15)}"
+    def setup
+      @input = read_input_file
+    end
+
+    def part1
+      puts "Part 1: #{get_code(KEYPAD1, @input, 12)}"
+    end
+
+    def part2
+      puts "Part 1: #{get_code(KEYPAD2, @input, 15)}"
     end
 
     def get_code(keypad, steps, pos)
