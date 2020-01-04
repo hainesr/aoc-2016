@@ -36,4 +36,8 @@ class AOC2016::SignalsAndNoiseTest < Minitest::Test
   def test_decode
     assert_equal('easter', @san.decode(MESSAGE))
   end
+
+  def test_mod_decode
+    assert_equal('advent', @san.mod_decode(MESSAGE))
+  end
 end
