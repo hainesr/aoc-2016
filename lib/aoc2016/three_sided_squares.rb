@@ -10,11 +10,16 @@ require 'aoc2016'
 
 module AOC2016
   class ThreeSidedSquares < Day
-    def run
-      input = read_input_file.split("\n").map { _1.split.map(&:to_i) }
+    def setup
+      @input = read_input_file.split("\n").map { _1.split.map(&:to_i) }
+    end
 
-      puts "Part 1: #{how_many_possible(input)}"
-      puts "Part 2: #{how_many_possible(input, true)}"
+    def part1
+      puts "Part 1: #{how_many_possible(@input)}"
+    end
+
+    def part2
+      puts "Part 2: #{how_many_possible(@input, true)}"
     end
 
     def how_many_possible(list, transpose = false)
