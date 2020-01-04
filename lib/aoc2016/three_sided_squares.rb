@@ -14,14 +14,18 @@ module AOC2016
       input = read_input_file.split("\n").map { _1.split.map(&:to_i) }
 
       puts "Part 1: #{how_many_possible(input)}"
+      puts "Part 2: #{how_many_possible(input, true)}"
     end
 
-    def how_many_possible(list)
-      list.count { possible? _1 }
+    def how_many_possible(list, transpose = false)
+      return list.count { possible? _1.sort } unless transpose
+
+      list.each_slice(3).flat_map do |a, b, c|
+        a.zip b, c
+      end.count { possible? _1.sort }
     end
 
     def possible?(triangle)
-      triangle.sort!
       triangle[0] + triangle[1] > triangle[2]
     end
   end

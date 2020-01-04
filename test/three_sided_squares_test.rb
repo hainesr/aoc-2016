@@ -15,6 +15,6 @@ class AOC2016::ThreeSidedSquaresTest < Minitest::Test
   end
 
   def test_possible?
-    refute @tss.possible? [5, 10, 25]
+    refute @tss.possible? [5, 10, 25].sort
   end
 end
