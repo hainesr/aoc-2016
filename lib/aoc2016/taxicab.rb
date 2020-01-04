@@ -10,12 +10,17 @@ require 'aoc2016'
 
 module AOC2016
   class Taxicab < Day
-    def run
+    def setup
       input = read_input_file.split(', ')
-      path = generate_path(input)
+      @path = generate_path(input)
+    end
 
-      puts "Part 1: #{shortest_path(path)}"
-      puts "Part 2: #{hq_location(path)}"
+    def part1
+      puts "Part 1: #{shortest_path(@path)}"
+    end
+
+    def part2
+      puts "Part 2: #{hq_location(@path)}"
     end
 
     def shortest_path(path)
