@@ -19,6 +19,13 @@ class AOC2016::SecurityThroughObscurityTest < Minitest::Test
     @sto = AOC2016::SecurityThroughObscurity.new
   end
 
+  def test_decrypt_room
+    assert_equal(
+      ['very encrypted name', 343],
+      @sto.decrypt_room('qzmt-zixmtkozy-ivhz-343[check]')
+    )
+  end
+
   def _test_sum_real_rooms
     assert_equal(
       1514,
@@ -33,22 +40,22 @@ class AOC2016::SecurityThroughObscurityTest < Minitest::Test
 
   def test_name_components
     assert_equal(
-      ['aaaaabbbzyx', 123, 'abxyz'],
+      ['aaaaa-bbb-z-y-x', 123, 'abxyz'],
       @sto.name_components(ROOM1)
     )
 
     assert_equal(
-      ['abcdefgh', 987, 'abcde'],
+      ['a-b-c-d-e-f-g-h', 987, 'abcde'],
       @sto.name_components(ROOM2)
     )
 
     assert_equal(
-      ['notarealroom', 404, 'oarel'],
+      ['not-a-real-room', 404, 'oarel'],
       @sto.name_components(ROOM3)
     )
 
     assert_equal(
-      ['totallyrealroom', 200, 'decoy'],
+      ['totally-real-room', 200, 'decoy'],
       @sto.name_components(ROOM4)
     )
   end
