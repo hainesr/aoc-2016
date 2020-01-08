@@ -21,7 +21,8 @@ module AOC2016
     'three_sided_squares',
     'security_through_obscurity',
     'game_of_chess',
-    'signals_and_noise'
+    'signals_and_noise',
+    'internet_protocol_7'
   ].freeze
 
   def self.class_from_day(day)
