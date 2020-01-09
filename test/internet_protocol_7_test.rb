@@ -14,6 +14,10 @@ class AOC2016::InternetProtocol7Test < Minitest::Test
   IP2 = 'abcd[bddb]xyyx'
   IP3 = 'aaaa[qwer]tyui'
   IP4 = 'ioxxoj[asdfgh]zxcvbn'
+  IP5 = 'aba[bab]xyz'
+  IP6 = 'xyx[xyx]xyx'
+  IP7 = 'aaa[kek]eke'
+  IP8 = 'zazbz[bzb]cdb'
 
   def setup
     @ip7 = AOC2016::InternetProtocol7.new
@@ -26,6 +30,13 @@ class AOC2016::InternetProtocol7Test < Minitest::Test
     assert @ip7.supports_tls?(IP4)
   end
 
+  def test_supports_ssl
+    assert @ip7.supports_ssl?(IP5)
+    refute @ip7.supports_ssl?(IP6)
+    assert @ip7.supports_ssl?(IP7)
+    assert @ip7.supports_ssl?(IP8)
+  end
+
   def test_detect_abba
     assert @ip7.detect_abba('abba')
     assert @ip7.detect_abba('abxyyxab')
@@ -33,6 +44,15 @@ class AOC2016::InternetProtocol7Test < Minitest::Test
     assert @ip7.detect_abba('xyyxaaaa')
     refute @ip7.detect_abba('aaaa')
     refute @ip7.detect_abba('abab')
+  end
+
+  def test_detect_aba
+    assert_equal([['a', 'b']], @ip7.detect_aba('aba'))
+    assert_equal([['b', 'a']], @ip7.detect_aba('bab'))
+    assert_equal([['b', 'a'], ['x', 'y']], @ip7.detect_aba('babbbzzzxxxyx'))
+    assert_equal([], @ip7.detect_aba('aaa'))
+    assert @ip7.detect_aba('bvgdcxyxxades', 'x', 'y')
+    refute @ip7.detect_aba('hgbdxyxjhnfda', 'y', 'x')
   end
 
   def test_ip7_sequence
