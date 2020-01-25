@@ -23,7 +23,8 @@ module AOC2016
     'game_of_chess',
     'signals_and_noise',
     'internet_protocol_7',
-    'two_factor_authentication'
+    'two_factor_authentication',
+    'explosives_in_cyberspace'
   ].freeze
 
   def self.class_from_day(day)
