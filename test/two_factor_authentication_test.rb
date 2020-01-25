@@ -62,5 +62,7 @@ class AOC2016::TwoFactorAuthenticationTest < Minitest::Test
     )
 
     assert_equal(6, screen.count)
+
+    assert_equal(" #  # #\n# #    \n #     ", screen.display)
   end
 end

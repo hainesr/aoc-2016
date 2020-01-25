@@ -11,29 +11,32 @@ require 'aoc2016'
 module AOC2016
   class TwoFactorAuthentication < Day
     def setup
-      @input = read_input_file.split("\n")
-    end
+      input = read_input_file.split("\n")
+      @screen = Screen.new(50, 6)
 
-    def part1
-      screen = Screen.new(50, 6)
-
-      @input.each do |line|
+      input.each do |line|
         tokens = line.split
 
         if tokens[0] == 'rect'
           x, y = tokens[1].split('x')
-          screen.rect(x.to_i, y.to_i)
+          @screen.rect(x.to_i, y.to_i)
         else
           _, n = tokens[2].split('=')
           if tokens[1] == 'column'
-            screen.rotate_column(n.to_i, tokens[4].to_i)
+            @screen.rotate_column(n.to_i, tokens[4].to_i)
           else
-            screen.rotate_row(n.to_i, tokens[4].to_i)
+            @screen.rotate_row(n.to_i, tokens[4].to_i)
           end
         end
       end
+    end
 
-      puts "Part 1: #{screen.count}"
+    def part1
+      puts "Part 1: #{@screen.count}"
+    end
+
+    def part2
+      puts "Part 2:\n#{@screen.display}"
     end
 
     class Screen
@@ -63,6 +66,10 @@ module AOC2016
 
       def count
         @pixels.flatten.count('#')
+      end
+
+      def display
+        @pixels.map(&:join).join("\n")
       end
     end
   end
