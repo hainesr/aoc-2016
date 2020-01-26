@@ -24,7 +24,8 @@ module AOC2016
     'signals_and_noise',
     'internet_protocol_7',
     'two_factor_authentication',
-    'explosives_in_cyberspace'
+    'explosives_in_cyberspace',
+    'balance_bots'
   ].freeze
 
   def self.class_from_day(day)
